@@ -58,6 +58,13 @@ local plugins = {
       -- or run <leader>ch to see copilot mapping section
     end
   },
+    {
+"jpalardy/vim-slime",
+    lazy=false,
+    enable = true,
+
+  },
+
   -- {
   -- "karb94/neoscroll.nvim",
   -- lazy=false,
