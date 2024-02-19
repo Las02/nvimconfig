@@ -8,11 +8,29 @@ M.general = {
   n = {
     ["<M-d>"] = { "<C-d>M", "enter command mode", opts = { nowait = true } },
     ["<M-u>"] = { "<C-u>M", "enter command mode", opts = { nowait = true } },
+    ["<M-^>"] = { "<C-^>", },
+    ["<M-o>"] = { "<C-o>", },
+    ["<M-i>"] = { "<C-i>", },
+    ["<A-p>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term", opts = { noremap = true }
+    },
   },
   v = {
     [">"] = { ">gv", "indent"},
   },
+  t = {
+    -- toggle in terminal mode
+    ["<A-p>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },}
 }
+
 
 -- M.copilot = {
 --   i = {

@@ -37,7 +37,14 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
-
+  {
+    "phaazon/hop.nvim",
+    lazy = false,
+    enabled = true,
+    config = function()
+      require'hop'.setup {}
+    end
+  },
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
