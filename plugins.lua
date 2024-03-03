@@ -4,7 +4,7 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   -- Override plugin definition options
-
+  
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -40,7 +40,7 @@ local plugins = {
   {
     lazy = false,
     enabled = true,
-    "michaeljsmith/vim-indent-object" 
+    "michaeljsmith/vim-indent-object"
   },
   {
     "phaazon/hop.nvim",
@@ -72,6 +72,12 @@ local plugins = {
   },
     {
 "jpalardy/vim-slime",
+    lazy=false,
+    enable = true,
+
+  },
+{
+"tommcdo/vim-exchange",
     lazy=false,
     enable = true,
 

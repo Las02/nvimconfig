@@ -6,20 +6,57 @@ M.general = {
   --   [";"] = { ":", "enter command mode", opts = { nowait = true } },
   -- -- },
   n = {
+    ["<leader>da"] = {
+      function()
+        vim.lsp.buf.add_workspace_folder()
+      end,
+      "Add workspace folder",
+    },
+
+    ["<leader>dr"] = {
+      function()
+        vim.lsp.buf.remove_workspace_folder()
+      end,
+      "Remove workspace folder",
+    },
+
+    ["<leader>dl"] = {
+      function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end,
+      "List workspace folders",
+    },
+    ["<leader>r"] = {
+      function()
+        require("nvchad.renamer").open()
+      end,
+      "LSP rename",
+    },
     ["<M-d>"] = { "<C-d>M", "enter command mode", opts = { nowait = true } },
     ["<M-u>"] = { "<C-u>M", "enter command mode", opts = { nowait = true } },
-    ["<M-^>"] = { "<C-^>", },
-    ["<M-o>"] = { "<C-o>", },
-    ["<M-i>"] = { "<C-i>", },
+    ["<M-^>"] = { "<C-^>" },
+    ["<M-o>"] = { "<C-o>" },
+    ["<tab>"] = { "<C-^>" },
+    ["<M-i>"] = { "<C-i>", opts = { noremap = true } },
+    ["<leader>f"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<leader>x"] = { "<cmd> bd <CR>", "Find files" },
+    ["<leader>ge"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<leader>gw"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<leader>b"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+    ["<leader>o"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
+    ["<leader>e"] = { "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", "Treeshitter" },
+    ["<leader>w"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Treeshitter" },
+    -- ["<leader>t"] = { "<cmd> Telescope treesitter <CR>", "Treeshitter" },
     ["<A-p>"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
-      "Toggle floating term", opts = { noremap = true }
+      "Toggle floating term",
+      opts = { remap = true },
     },
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
   },
   t = {
     -- toggle in terminal mode
@@ -28,9 +65,9 @@ M.general = {
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
-    },}
+    },
+  },
 }
-
 
 -- M.copilot = {
 --   i = {
@@ -43,7 +80,6 @@ M.general = {
 --     }
 --   }
 -- }
-
 
 M.harpoon = {
   n = {
@@ -62,21 +98,21 @@ M.harpoon = {
       end,
       "󱠿 Harpoon Menu",
     },
-    ["<M-q>"] = {
+    ["<M-z>"] = {
       function()
         local harpoon = require "harpoon"
         harpoon:list():select(1)
       end,
       "󱪼 Navigate to file 1",
     },
-    ["<M-w>"] = {
+    ["<M-x>"] = {
       function()
         local harpoon = require "harpoon"
         harpoon:list():select(2)
       end,
       "󱪽 Navigate to file 2",
     },
-    ["<M-e>"] = {
+    ["<M-c>"] = {
       function()
         local harpoon = require "harpoon"
         harpoon:list():select(3)
@@ -92,7 +128,5 @@ M.harpoon = {
     },
   },
 }
-
-
 
 return M
